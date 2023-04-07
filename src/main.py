@@ -1,4 +1,6 @@
 """Main program for PyCalc."""
 
+from modules import core
+
 if __name__ == '__main__':
-    print('Hello, World!')
+    core.start()
