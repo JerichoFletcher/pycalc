@@ -1,12 +1,10 @@
 """IO component to read from and write to the main IO stream, which defaults to the terminal."""
 
-from colorama import Fore
-
 __line_number: list = [1]
-COLOR_TEXT    = Fore.RESET
-COLOR_OUT     = Fore.GREEN
-COLOR_IN      = Fore.YELLOW
-COLOR_ERR     = Fore.RED
+COLOR_TEXT    = '\033[0m'
+COLOR_OUT     = '\033[32m'
+COLOR_IN      = '\033[33m'
+COLOR_ERR     = '\033[31m'
 
 def write( obj: object) -> None:
     """Writes a line to the terminal.
