@@ -1,11 +1,11 @@
 """Module containing all available binary operators."""
 
 from abc import ABC
-from ops.base import BaseOperator
+from ops.base import ArithmeticOperatorBase
 from modules import core
 
 
-class BinaryOperator(BaseOperator, ABC):
+class BinaryOperator(ArithmeticOperatorBase, ABC):
     """Acts as a base class for all binary operators."""
     @property
     def arity(self) -> int:
@@ -105,7 +105,15 @@ class DivideOperator(BinaryOperator):
         return operands[0] / operands[1]
 
 
-core.add_op(AddOperator())
-core.add_op(SubtractOperator())
-core.add_op(MultiplyOperator())
-core.add_op(DivideOperator())
+def init() -> int:
+    """Initializes all binary operators.
+
+    Returns:
+        int: The number of registered operators.
+    """
+    return core.add_op(
+        AddOperator(),
+        SubtractOperator(),
+        MultiplyOperator(),
+        DivideOperator()
+    )
