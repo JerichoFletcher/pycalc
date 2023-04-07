@@ -1,7 +1,7 @@
 """Core PyCalc calculator module responsible for managing various components."""
 
-import modules.display as __display
+from modules import display
 
 def start() -> None:
     """Entry point for the calculator module."""
-    __display.write("Welcome to PyCalc!")
+    display.write("Welcome to PyCalc!")

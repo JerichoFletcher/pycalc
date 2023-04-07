@@ -1,6 +1,6 @@
 """PyCalc display component to read from and write to the main IO stream."""
 
-import cio.scr as __scr
+from cio import term
 
 def write(obj: str) -> None:
     """Writes a text to the terminal.
@@ -8,7 +8,7 @@ def write(obj: str) -> None:
     Args:
         x (str): The text to write.
     """
-    __scr.write(obj)
+    term.write(obj)
 
 def read(prompt: str = "") -> str:
     """Writes a prompt and reads a line from the terminal.
@@ -19,4 +19,4 @@ def read(prompt: str = "") -> str:
     Returns:
         str: The line read from the terminal.
     """
-    return __scr.read(prompt)
+    return term.read(prompt)
