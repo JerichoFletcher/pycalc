@@ -2,13 +2,14 @@
 
 from cio import term
 
-def write(obj: str) -> None:
+
+def write(line: str) -> None:
     """Writes a text to the terminal.
 
     Args:
-        x (str): The text to write.
+        line (str): The text to write.
     """
-    term.write(obj)
+    term.write(line)
 
 
 def read(prompt: str = "") -> str:

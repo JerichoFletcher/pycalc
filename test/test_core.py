@@ -2,6 +2,7 @@
 
 from modules import core
 
+
 def test_active() -> None:
     """Tests the behavior of core.active()"""
     assert not core.active()
