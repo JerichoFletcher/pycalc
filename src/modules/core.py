@@ -2,7 +2,7 @@
 
 from modules import display
 
-__has_started: list[bool] = [False]
+__has_started = [False]
 
 def active() -> bool:
     """Returns whether the core program is active or not.
