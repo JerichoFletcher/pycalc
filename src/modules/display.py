@@ -10,6 +10,7 @@ def write(obj: str) -> None:
     """
     term.write(obj)
 
+
 def read(prompt: str = "") -> str:
     """Writes a prompt and reads a line from the terminal.
 
