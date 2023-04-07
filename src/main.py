@@ -3,8 +3,13 @@
 from modules import core
 from ops import binary, bracket
 
-if __name__ == '__main__':
-    core.start()
+
+def init() -> None:
+    """Initializes operators"""
     binary.init()
     bracket.init()
-    core.info()
+
+
+if __name__ == '__main__':
+    core.start()
+    init()
