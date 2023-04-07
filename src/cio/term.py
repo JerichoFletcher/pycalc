@@ -2,7 +2,7 @@
 
 from colorama import Fore
 
-__line_number = [1]
+__line_number: list = [1]
 COLOR_TEXT    = Fore.RESET
 COLOR_OUT     = Fore.GREEN
 COLOR_IN      = Fore.YELLOW
