@@ -54,6 +54,7 @@ jobs:
         key: ${{ env.pythonLocation }}-${{ matrix.python-version }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
     - name: Run pylint
       run: |
+        python -m pip install pylint
         pylint --disable=import-error,too-few-public-methods $(git ls-files '*.py')
 
   test:
