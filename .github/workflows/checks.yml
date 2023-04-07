@@ -27,7 +27,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ${{ env.pythonLocation }}
-        key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
+        key: ${{ env.pythonLocation }}-${{ matrix.python-version }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
     - name: Install dependencies
       if: steps.cache-env.outputs.cache-hit != 'true'
       run: |
@@ -51,7 +51,7 @@ jobs:
       with:
         fail-on-cache-miss: true
         path: ${{ env.pythonLocation }}
-        key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
+        key: ${{ env.pythonLocation }}-${{ matrix.python-version }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
     - name: Run pylint
       run: |
         pylint --disable=import-error,too-few-public-methods $(git ls-files '*.py')
@@ -74,7 +74,7 @@ jobs:
       with:
         fail-on-cache-miss: true
         path: ${{ env.pythonLocation }}
-        key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
+        key: ${{ env.pythonLocation }}-${{ matrix.python-version }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
     - name: Run pytest
       run: |
         python -m pytest
