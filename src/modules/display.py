@@ -2,13 +2,13 @@
 
 import cio.scr as __scr
 
-def write(x: str) -> None:
+def write(obj: str) -> None:
     """Writes a text to the terminal.
 
     Args:
         x (str): The text to write.
     """
-    __scr.write(x)
+    __scr.write(obj)
 
 def read(prompt: str = "") -> str:
     """Writes a prompt and reads a line from the terminal.
