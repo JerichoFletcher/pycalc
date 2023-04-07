@@ -25,7 +25,7 @@ jobs:
         pip install pylint
     - name: Run pylint
       run: |
-        pylint --disable=import-error $(git ls-files '*.py')
+        pylint --disable=import-error,too-few-public-methods $(git ls-files '*.py')
 
   test:
     name: Run tests
