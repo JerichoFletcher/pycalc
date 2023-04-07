@@ -13,9 +13,6 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
-    outputs:
-      python-key: ${{ steps.generate-python-key.outputs.key }}
-      pre-commit-key: ${{ steps.generate-pre-commit-key.outputs.key }}
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
