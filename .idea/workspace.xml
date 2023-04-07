@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20c29bfe-80ba-465f-8762-760c5a9b15f8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/checks.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/checks.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +18,7 @@
       <list>
         <option value="Python Unit Test" />
         <option value="Python Script" />
+        <option value="Setup Script" />
       </list>
     </option>
   </component>
