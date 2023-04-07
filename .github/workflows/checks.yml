@@ -6,16 +6,13 @@ on:
     - master
     - "feat-**"
 
-env:
-  PYTHON_VERSION: ["3.8", "3.9", "3.10"]
-
 jobs:
   prep:
     name: Prepare and cache dependencies
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ${{ env.PYTHON_VERSION }}
+        python-version: ["3.8", "3.9", "3.10"]
     outputs:
       python-key: ${{ steps.generate-python-key.outputs.key }}
       pre-commit-key: ${{ steps.generate-pre-commit-key.outputs.key }}
@@ -42,7 +39,7 @@ jobs:
     needs: prep
     strategy:
       matrix:
-        python-version: ${{ env.PYTHON_VERSION }}
+        python-version: ["3.8", "3.9", "3.10"]
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -65,7 +62,7 @@ jobs:
     needs: prep
     strategy:
       matrix:
-        python-version: ${{ env.PYTHON_VERSION }}
+        python-version: ["3.8", "3.9", "3.10"]
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -81,4 +78,3 @@ jobs:
     - name: Run pytest
       run: |
         python -m pytest
-
