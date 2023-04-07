@@ -20,4 +20,4 @@ jobs:
         pip install pylint
     - name: Lint Python code
       run: |
-        pylint $(git ls-files '*.py')
+        (cd /src; pylint $(git ls-files '*.py'))
