@@ -6,9 +6,10 @@ from modules import core
 
 
 class BinaryOperator(BaseOperator, ABC):
-    """Acts as a base class for all operators."""
+    """Acts as a base class for all binary operators."""
     @property
     def arity(self) -> int:
+        """The number of operands this operator requires."""
         return 2
 
 
@@ -30,7 +31,9 @@ class AddOperator(BinaryOperator):
         """
         if len(operands) != self.arity:
             raise ValueError(f"Wrong operand count, expected {self.arity}, got {len(operands)}")
-        if operands[0] is not float:
-            raise TypeError(f"Wrong operand type, expected {type(float)}, got {type(operands[0])}")
+        if not isinstance(operands[0], float):
+            raise TypeError(f"Wrong operand type, expected {float}, got {type(operands[0])}")
         return operands[0] + operands[1]
 
+
+core.add_op(AddOperator())

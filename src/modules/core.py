@@ -7,13 +7,13 @@ _has_started: list = [False]
 _reg_ops: dict = {}
 
 
-def add_op(op: BaseOperator) -> None:
+def add_op(operator: BaseOperator) -> None:
     """Registers an operator to the calculator.
 
     Args:
-        op (BaseOperator): The operator to be registered.
+        operator (BaseOperator): The operator to be registered.
     """
-    _reg_ops[op.symbol] = op
+    _reg_ops[operator.symbol] = operator
 
 
 def active() -> bool:

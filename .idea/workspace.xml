@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20c29bfe-80ba-465f-8762-760c5a9b15f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/pycalc.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ops/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ops/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ops/binary.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_binops.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cio/term.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cio/term.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/checks.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/checks.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/display.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/display.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ops/binary.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ops/binary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_binops.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_binops.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,30 +64,9 @@
     <option name="configurationTypes">
       <set>
         <option value="PythonConfigurationType" />
-        <option value="tests" />
+        <option value="ShConfigurationType" />
       </set>
     </option>
-  </component>
-  <component name="RunManager">
-    <configuration name="Python tests for test_core.test_active" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="pycalc" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_core.test_active&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python tests.Python tests for test_core.test_active" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -114,7 +84,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

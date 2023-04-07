@@ -1,21 +1,19 @@
 """Test script for testing binary operators."""
 
-from ops.binary import AddOperator
 import pytest
+from ops.binary import AddOperator
 
 
 def test_add() -> None:
     """Tests the behavior of the add operator."""
-    op = AddOperator()
-    res = op.eval(2, 3)
-    assert res == 5
-    res = op.eval(6, -18)
-    assert res == -12
+    operator = AddOperator()
     with pytest.raises(TypeError):
-        op.eval('4', '6')
+        operator.eval('4', '6')
     with pytest.raises(ValueError):
-        op.eval(1)
+        operator.eval(1.)
     with pytest.raises(ValueError):
-        op.eval(2, 4)
-    res = op.eval(0, 0)
-    assert res == 0
+        operator.eval(2., 4., 5.)
+    for first_op in range(-100, 100, 1):
+        for second_op in range(-100, 100, 1):
+            result = operator.eval(float(first_op), float(second_op))
+            assert result == first_op + second_op
