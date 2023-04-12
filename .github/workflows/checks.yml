@@ -1,10 +1,11 @@
 name: Checks
 
 on:
-  push:
+  - push:
     branches:
       - main
       - 'feat-**'
+  - push:
     tags: 'v*'
 
 env:
