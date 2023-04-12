@@ -2,10 +2,10 @@ name: Checks
 
 on:
   push:
-    - branches:
+    branches:
       - main
       - 'feat-**'
-    - tags: 'v*'
+    tags: 'v*'
 
 env:
   PYTHON_VERSION: '3.9'
