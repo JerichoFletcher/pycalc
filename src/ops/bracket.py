@@ -1,7 +1,7 @@
 """Module containing all available bracket operators."""
 
+from typing import Any
 from ops.base import BracketOperatorBase
-from modules import core
 
 
 class BracketOperator(BracketOperatorBase):
@@ -27,10 +27,12 @@ class BracketOperator(BracketOperatorBase):
         return self.__symbol_r
 
 
-def init():
+def init() -> list[Any]:
     """Initializes all bracket operators.
 
     Returns:
         int: The number of registered operators.
     """
-    return core.add_op(BracketOperator("(", ")"))
+    return [
+        BracketOperator("(", ")")
+    ]

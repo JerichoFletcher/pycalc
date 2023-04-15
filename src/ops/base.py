@@ -18,15 +18,17 @@ class ArithmeticOperatorBase(OperatorBase, ABC):
     def arity(self) -> int:
         """The number of operands this operator requires."""
 
+    @property
     @abstractmethod
-    def eval(self, operands: list) -> float:
-        """Evaluates the operation using several operands.
+    def priority(self) -> int:
+        """The priority of this operator. Higher priority operators are evaluated first."""
 
-        Args:
-            operands: The operands provided in this operation.
-
-        Returns:
-            float: The value of the operation result.
+    @abstractmethod
+    def eval(self, *operands: float) -> float:
+        """
+        Evaluates the operation using several operands.
+        :param operands: The operands provided in this operation.
+        :return: The value of the operation result.
         """
 
     def __repr__(self) -> str:
