@@ -56,4 +56,14 @@ def start() -> None:
     if _active[0]:
         return
     _active[0] = True
-    display.write("Welcome to PyCalc!")
+    display.write("Welcome to PyCalc! Input the expression you want to evaluate below, or 'exit' to :")
+
+    while True:
+        inp = display.read("Expression: ").lower()
+        if inp != "exit":
+            # Temporary
+            display.write(inp)
+        else:
+            break
+
+    display.write("Thank you for using PyCalc!")
