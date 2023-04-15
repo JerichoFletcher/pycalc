@@ -1,19 +1,18 @@
 """Core PyCalc calculator module responsible for managing various components."""
 
+from typing import Callable, Any
 from modules import display
 from ops.base import OperatorBase
 
-_active: list = [False]
-_reg_ops: dict = {}
+_active: list[bool] = [False]
+_reg_ops: dict[str, Any] = {}
 
 
 def add_op(*operators: OperatorBase) -> int:
     """Registers an operator to the calculator.
 
-    Args:
-        operators (BaseArithmeticOperator): The operator to be registered.
-    Returns:
-        int: The number of operators registered.
+    :param operators: The operator to be registered.
+    :return: The number of operators registered.
     """
     for operator in operators:
         if not isinstance(operator, OperatorBase):
@@ -27,17 +26,16 @@ def add_op(*operators: OperatorBase) -> int:
 def active() -> bool:
     """Returns whether the core program is active or not.
 
-    Returns:
-        bool: Whether the core program is active or not.
+    :return: Whether the core program is active or not.
     """
     return _active[0]
 
 
-def info(print_info: bool = True) -> dict:
+def info(print_info: bool = True) -> dict[str, Any]:
     """Displays internal information of the calculator program. Used for debugging purposes.
 
-    Args:
-        print_info (bool, optional): Whether information should be written to the terminal.
+    :param print_info: Whether information should be written to the terminal.
+    :return: A dictionary containing information stored in the core program.
     """
     if print_info:
         display.write_info("Information for PyCalc:")
@@ -51,19 +49,29 @@ def info(print_info: bool = True) -> dict:
     }
 
 
-def start() -> None:
-    """Entry point for the calculator module."""
-    if _active[0]:
+def init(initializer: Callable[[], None]) -> None:
+    """Initializes the core program.
+
+    :param initializer: A callable initialization function.
+    """
+    if active():
         return
     _active[0] = True
+    initializer()
+
+
+def run() -> None:
+    """Runs the calculator. Will raise an error if the core program has not been initialized yet."""
+    if not active():
+        raise RuntimeError("Core has not been initialized yet.")
+
     display.write("Welcome to PyCalc! Input the expression you want to evaluate below, or 'exit' to :")
+    _loop()
+    display.write("Thank you for using PyCalc!")
 
 
-def loop() -> None:
+def _loop() -> None:
     """Main loop for the calculator module."""
-    if not _active[0]:
-        return
-
     while True:
         inp = display.read("Expression: ").lower()
         if inp != "exit":
@@ -71,5 +79,3 @@ def loop() -> None:
             display.write(inp)
         else:
             break
-
-    display.write("Thank you for using PyCalc!")

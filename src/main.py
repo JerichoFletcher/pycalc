@@ -9,9 +9,7 @@ def init() -> None:
     binary.init()
     bracket.init()
 
-    core.start()
-
 
 if __name__ == '__main__':
-    init()
-    core.loop()
+    core.init(init)
+    core.run()
