@@ -18,6 +18,11 @@ class ArithmeticOperatorBase(OperatorBase, ABC):
     def arity(self) -> int:
         """The number of operands this operator requires."""
 
+    @property
+    @abstractmethod
+    def priority(self) -> int:
+        """The priority of this operator. Higher priority operators are evaluated first."""
+
     @abstractmethod
     def eval(self, operands: list) -> float:
         """Evaluates the operation using several operands.

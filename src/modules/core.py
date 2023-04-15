@@ -58,6 +58,12 @@ def start() -> None:
     _active[0] = True
     display.write("Welcome to PyCalc! Input the expression you want to evaluate below, or 'exit' to :")
 
+
+def loop() -> None:
+    """Main loop for the calculator module."""
+    if not _active[0]:
+        return
+
     while True:
         inp = display.read("Expression: ").lower()
         if inp != "exit":

@@ -1,6 +1,6 @@
 """IO component to read from and write to the main IO stream, which defaults to the terminal."""
 
-_line_number: list = [1]
+_line_number: list[int] = [1]
 
 COLOR_RESET = '\033[0m'
 

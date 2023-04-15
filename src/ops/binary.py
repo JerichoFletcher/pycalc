@@ -2,6 +2,7 @@
 
 from abc import ABC
 from ops.base import ArithmeticOperatorBase
+import ops.op_vars as var
 from modules import core
 
 
@@ -19,6 +20,11 @@ class AddOperator(BinaryOperator):
     def symbol(self) -> str:
         """The symbol for this operator."""
         return "+"
+
+    @property
+    def priority(self) -> int:
+        """The priority of this operator. Higher priority operators are evaluated first."""
+        return var.PRIORITY_ADD_SUB
 
     def eval(self, *operands: float) -> float:
         """Evaluates the operation using several operands.
@@ -43,6 +49,11 @@ class SubtractOperator(BinaryOperator):
         """The symbol for this operator."""
         return "-"
 
+    @property
+    def priority(self) -> int:
+        """The priority of this operator. Higher priority operators are evaluated first."""
+        return var.PRIORITY_ADD_SUB
+
     def eval(self, *operands: float) -> float:
         """Evaluates the operation using several operands.
 
@@ -66,6 +77,11 @@ class MultiplyOperator(BinaryOperator):
         """The symbol for this operator."""
         return "*"
 
+    @property
+    def priority(self) -> int:
+        """The priority of this operator. Higher priority operators are evaluated first."""
+        return var.PRIORITY_MUL_DIV
+
     def eval(self, *operands: float) -> float:
         """Evaluates the operation using several operands.
 
@@ -88,6 +104,11 @@ class DivideOperator(BinaryOperator):
     def symbol(self) -> str:
         """The symbol for this operator."""
         return "/"
+
+    @property
+    def priority(self) -> int:
+        """The priority of this operator. Higher priority operators are evaluated first."""
+        return var.PRIORITY_MUL_DIV
 
     def eval(self, *operands: float) -> float:
         """Evaluates the operation using several operands.
