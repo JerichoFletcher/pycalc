@@ -1,9 +1,9 @@
 """Module containing all available binary operators."""
 
+from typing import Any
 from abc import ABC
 from ops.base import ArithmeticOperatorBase
 import ops.op_vars as var
-from modules import core
 
 
 class BinaryOperator(ArithmeticOperatorBase, ABC):
@@ -27,13 +27,10 @@ class AddOperator(BinaryOperator):
         return var.PRIORITY_ADD_SUB
 
     def eval(self, *operands: float) -> float:
-        """Evaluates the operation using several operands.
-
-        Args:
-            operands (tuple): The operands provided in this operation.
-
-        Returns:
-            float: The value of the operation result.
+        """
+        Evaluates the operation using several operands.
+        :param operands: The operands provided in this operation.
+        :return: The value of the operation result.
         """
         if len(operands) != self.arity:
             raise ValueError(f"Wrong operand count, expected {self.arity}, got {len(operands)}")
@@ -55,13 +52,10 @@ class SubtractOperator(BinaryOperator):
         return var.PRIORITY_ADD_SUB
 
     def eval(self, *operands: float) -> float:
-        """Evaluates the operation using several operands.
-
-        Args:
-            operands (tuple): The operands provided in this operation.
-
-        Returns:
-            float: The value of the operation result.
+        """
+        Evaluates the operation using several operands.
+        :param operands: The operands provided in this operation.
+        :return: The value of the operation result.
         """
         if len(operands) != self.arity:
             raise ValueError(f"Wrong operand count, expected {self.arity}, got {len(operands)}")
@@ -83,13 +77,10 @@ class MultiplyOperator(BinaryOperator):
         return var.PRIORITY_MUL_DIV
 
     def eval(self, *operands: float) -> float:
-        """Evaluates the operation using several operands.
-
-        Args:
-            operands (tuple): The operands provided in this operation.
-
-        Returns:
-            float: The value of the operation result.
+        """
+        Evaluates the operation using several operands.
+        :param operands: The operands provided in this operation.
+        :return: The value of the operation result.
         """
         if len(operands) != self.arity:
             raise ValueError(f"Wrong operand count, expected {self.arity}, got {len(operands)}")
@@ -111,13 +102,10 @@ class DivideOperator(BinaryOperator):
         return var.PRIORITY_MUL_DIV
 
     def eval(self, *operands: float) -> float:
-        """Evaluates the operation using several operands.
-
-        Args:
-            operands (tuple): The operands provided in this operation.
-
-        Returns:
-            float: The value of the operation result.
+        """
+        Evaluates the operation using several operands.
+        :param operands: The operands provided in this operation.
+        :return: The value of the operation result.
         """
         if len(operands) != self.arity:
             raise ValueError(f"Wrong operand count, expected {self.arity}, got {len(operands)}")
@@ -126,15 +114,14 @@ class DivideOperator(BinaryOperator):
         return operands[0] / operands[1]
 
 
-def init() -> int:
-    """Initializes all binary operators.
-
-    Returns:
-        int: The number of registered operators.
+def init() -> list[Any]:
     """
-    return core.add_op(
+    Initializes all binary operators.
+    :return: The number of registered operators.
+    """
+    return [
         AddOperator(),
         SubtractOperator(),
         MultiplyOperator(),
         DivideOperator()
-    )
+    ]

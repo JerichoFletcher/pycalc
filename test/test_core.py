@@ -2,7 +2,6 @@
 
 import main
 from modules import core
-from ops import binary, bracket
 
 
 def test_unstarted_core_should_be_inactive() -> None:
@@ -13,7 +12,7 @@ def test_unstarted_core_should_be_inactive() -> None:
 def test_start_should_mark_core_as_active() -> None:
     """Tests the behavior of core start."""
     assert not core.active()
-    core.init(lambda: None)
+    core.init(lambda: [])
     info = core.info(print_info=False)
     assert info["active"]
 

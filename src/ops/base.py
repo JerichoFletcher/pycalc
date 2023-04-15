@@ -24,14 +24,11 @@ class ArithmeticOperatorBase(OperatorBase, ABC):
         """The priority of this operator. Higher priority operators are evaluated first."""
 
     @abstractmethod
-    def eval(self, operands: list) -> float:
-        """Evaluates the operation using several operands.
-
-        Args:
-            operands: The operands provided in this operation.
-
-        Returns:
-            float: The value of the operation result.
+    def eval(self, *operands: float) -> float:
+        """
+        Evaluates the operation using several operands.
+        :param operands: The operands provided in this operation.
+        :return: The value of the operation result.
         """
 
     def __repr__(self) -> str:

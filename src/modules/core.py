@@ -1,16 +1,16 @@
 """Core PyCalc calculator module responsible for managing various components."""
 
 from typing import Callable, Any
-from modules import display
-from ops.base import OperatorBase
+from modules import display, arith
+from ops.base import OperatorBase, BracketOperatorBase
 
 _active: list[bool] = [False]
 _reg_ops: dict[str, Any] = {}
 
 
-def add_op(*operators: OperatorBase) -> int:
-    """Registers an operator to the calculator.
-
+def add_op(*operators: Any) -> int:
+    """
+    Registers an operator to the calculator.
     :param operators: The operator to be registered.
     :return: The number of operators registered.
     """
@@ -19,21 +19,25 @@ def add_op(*operators: OperatorBase) -> int:
             raise TypeError(
                 f"Wrong operator base type, expected {OperatorBase}, found {type(operator)}"
             )
-        _reg_ops[operator.symbol] = operator
+        if isinstance(operator, BracketOperatorBase):
+            _reg_ops[operator.symbol_l] = operator
+            _reg_ops[operator.symbol_r] = operator
+        else:
+            _reg_ops[operator.symbol] = operator
     return len(operators)
 
 
 def active() -> bool:
-    """Returns whether the core program is active or not.
-
+    """
+    Returns whether the core program is active or not.
     :return: Whether the core program is active or not.
     """
     return _active[0]
 
 
 def info(print_info: bool = True) -> dict[str, Any]:
-    """Displays internal information of the calculator program. Used for debugging purposes.
-
+    """
+    Displays internal information of the calculator program. Used for debugging purposes.
     :param print_info: Whether information should be written to the terminal.
     :return: A dictionary containing information stored in the core program.
     """
@@ -49,15 +53,16 @@ def info(print_info: bool = True) -> dict[str, Any]:
     }
 
 
-def init(initializer: Callable[[], None]) -> None:
-    """Initializes the core program.
-
-    :param initializer: A callable initialization function.
+def init(operators: Callable[[], list[Any]]) -> None:
+    """
+    Initializes the core program with operators.
+    :param operators: A callable initialization function returning a list of operators to be registered.
     """
     if active():
         return
     _active[0] = True
-    initializer()
+    for operator in operators():
+        add_op(operator)
 
 
 def run() -> None:
@@ -65,7 +70,7 @@ def run() -> None:
     if not active():
         raise RuntimeError("Core has not been initialized yet.")
 
-    display.write("Welcome to PyCalc! Input the expression you want to evaluate below, or 'exit' to :")
+    display.write("Welcome to PyCalc! Input the expression you want to evaluate below, or 'exit' to quit the program:")
     _loop()
     display.write("Thank you for using PyCalc!")
 
@@ -75,7 +80,10 @@ def _loop() -> None:
     while True:
         inp = display.read("Expression: ").lower()
         if inp != "exit":
-            # Temporary
-            display.write(inp)
+            try:
+                result = arith.evaluate(inp, _reg_ops)
+                display.write(f"Result: {result}")
+            except Exception as exc:
+                display.write_error(f"ERROR: {exc}")
         else:
             break
